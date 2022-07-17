@@ -1,0 +1,8 @@
+{#  #}
+{{ member.getAttribute('used').increment(-15) }}
+
+
+2 действие
+
+
+{{ member.getAttribute('test').increment(-15) }}, {{ member.getAttribute('w1').increment(-15) }}
