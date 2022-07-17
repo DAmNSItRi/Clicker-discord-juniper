@@ -1,0 +1,9 @@
+{{ member.getAttribute('used').clear() }}
+{{ member.getAttribute('used1').clear() }}
+
+
+2 действие
+
+
+{{ member.getAttribute('test').clear() }}
+{{ member.getAttribute('w1').clear() }}
