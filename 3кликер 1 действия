@@ -1,0 +1,26 @@
+Последний клик сделал:
+{{ member }}
+…………………………………………………………………………
+Выпало: ***{{ member.getAttribute('u').decrement(random(0,10000)) }}***
+
+Если выпадет -5000 у тебя будет роль
+…………………………………………………………………………
+{% if (member.hasRole(998204129459580989)) == (folse) -%}
+	{%- if  (member.getAttribute('u')== -500) -%}
+	{{- member.addRole(998204129459580989).color(12) }}
+	Роль выпала поздравляю!:rainbow_potion:
+	{%- else %}
+  Не выпала роль, попробуйте снова!
+	{%- endif -%}
+{%- else %}
+Увас уже есть роль!
+{% endif %}
+{#- increment/decrement -#}
+{#- {{ member.attributes.words.value }} -#}
+{#- clear() -#}
+{#- {{ member.getAttribute('used').increment(1) }} -#}
+{#- {{ member.getAttribute('used').clear() }} -#}
+{#- 'used' основной но можно поменять для сброса -#}
+{#-	{% do button('PRIMARY', 'acceptBtn', 'ДА', '✅', '29682a5a-e812-48da-9433-6086e345577f') %} -#}
+
+{{- member.getAttribute('u').clear() -}}
