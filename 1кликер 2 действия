@@ -1,0 +1,44 @@
+Последний клик сделал:
+{{ member }}
+…………………………………………………………………………
+Роль от 10.000 кликов
+…………………………………………………………………………
+Количество кликов: {{ member.getAttribute('used').increment(1) }}
+Добавить клик :rainbow_potion:
+…………………………………………………………………………
+{% if  (member.getAttribute('used')> 10000) -%}
+Пока что роли нет)
+{%- else -%}
+	{% if (member.hasRole(997781612202835998)) == (folse) -%}
+		{%- if  (member.getAttribute('used')== 10000) %}
+			{{- member.addRole(997781612202835998).color(12) -}}
+			Роль выпала поздравляю!:rainbow_potion:
+			{% else -%}
+			Вы еще не накопили на роль!
+		{% endif %}
+	{%- else -%}
+	У вас уже есть роль!
+  {% endif %}
+{% endif %}
+{# {{ member.attributes.words.value }} #}
+{# clear() #}
+{# {{ member.getAttribute('used').increment(1) }} #}
+{# {{ member.getAttribute('used').clear() }} #}
+{# 'used' основной но можно поменять для сброса #}
+
+//Это 2 действие
+
+
+Статистика сброс
+…………………………………………………………………………
+{{ member.getAttribute('used').clear() }}
+*Твой TAG*
+***{{ member.tag() }}***
+…………………………………………………………………………
+**Роль**
+{% if (member.hasRole(997781612202835998)) != (folse) -%}
+	Есть роль!
+{%- else -%}
+	Нет роли!
+{%- endif %}
+{{ member }}
