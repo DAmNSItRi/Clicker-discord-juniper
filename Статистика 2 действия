@@ -1,0 +1,44 @@
+Ник: **{{ member.nickname() }}**
+TAG: {{ member.tag() }}
+
+**Присоединился:**
+*{{ member.joinedAt() }}*
+**Создан акк:**
+*{{ member.createdAt() }}*
+
+***Статус:*** {{ member.status() }}
+**Ранг Чата: {{ member.rank() }}**
+
+*Роли:*
+{{ member.roles() }}
+
+
+2 действие
+
+
+Ник: **{{ member.nickname() }}**
+
+**Кликер v1:** {{ member.attributes.used.value }} 
+**Роль**
+{% if (member.hasRole(997781612202835998)) != (folse) -%}
+	Есть роль! <@&997781612202835998>
+{%- else -%}
+	Нет роли!
+{%- endif %}
+
+**Кликер V2**: {{ member.attributes.test.value }} 
+**Кликер V2:** {{ member.attributes.w1.value }} Рандом
+**Роль**
+{% if (member.hasRole(998182738051993620)) != (folse) -%}
+	Есть роль! <@&998182738051993620>
+{%- else -%}
+	Нет роли!
+{%- endif %}
+
+**Кликер V3:**
+**Роль**
+{% if (member.hasRole(998204129459580989)) != (folse) -%}
+	Есть роль! <@&998204129459580989>
+{%- else -%}
+	Нет роли!
+{%- endif %}
