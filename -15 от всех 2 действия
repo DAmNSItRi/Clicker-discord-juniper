@@ -1,8 +1,8 @@
 {#  #}
-{{ member.getAttribute('used').increment(-15) }}
+**{{ member.getAttribute('used').increment(-15) }} v1 клики**
 
 
 2 действие
 
 
-{{ member.getAttribute('test').increment(-15) }}, {{ member.getAttribute('w1').increment(-15) }}
+**{{ member.getAttribute('test').increment(-15) }}, {{ member.getAttribute('w1').increment(-15) }} v2 клики**
