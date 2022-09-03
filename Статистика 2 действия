@@ -7,7 +7,7 @@ TAG: {{ member.tag() }}
 *{{ member.createdAt() }}*
 
 ***Статус:*** {{ member.status() }}
-**Ранг Чата: {{ member.rank() }}**
+**В Топ № {{ member.rank() }}**
 
 *Роли:*
 {{ member.roles() }}
@@ -35,7 +35,7 @@ TAG: {{ member.tag() }}
 	Нет роли!
 {%- endif %}
 
-**Кликер V3:**
+**Кликер V3**
 **Роль**
 {% if (member.hasRole(998204129459580989)) != (folse) -%}
 	Есть роль! <@&998204129459580989>
