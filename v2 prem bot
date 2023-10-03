@@ -1,0 +1,184 @@
+**Подтвердите чтобы 
+Запустить!**
+
+**Вы Не будете оскорблять админа
+Вы будете сообщать о багах**
+{% do guild.getChannel(888528148398997585)
+  .createEmbed()
+  .withDescription(format('Был запущен кликер участником %s:\n\n', member))
+  .send()
+  %}
+
+{#**Роль**
+{% if (member.hasRole(997781612202835998)) != (folse) -%}
+	Есть роль! <@&997781612202835998>
+{%- else -%}
+	Нет роли!
+{%- endif %}
+
+**Кликер V2:** {{ member.attributes.test.value }} 
+**Кликер V2:** {{ member.attributes.w1.value }} Рандом
+**Роль**
+{% if (member.hasRole(998182738051993620)) != (folse) -%}
+	Есть роль! <@&998182738051993620>
+{%- else -%}
+	Нет роли!
+{%- endif %}
+
+**Кликер V3**
+**Роль**
+{% if (member.hasRole(998204129459580989)) != (folse) -%}
+	Есть роль! <@&998204129459580989>
+{%- else -%}
+	Нет роли!
+{%- endif %} #}
+Статистика сброшена!
+
+{% set a = (member.hasRole(997781612202835998)) ? '	Есть роль! <@&997781612202835998>!' : 'Роли нету!' %}
+{% set b = (member.hasRole(998182738051993620)) ? '	Есть роль! <@&998182738051993620>!' : 'Роли нету!' %}
+{% set c = (member.hasRole(998204129459580989)) ? '	Есть роль! <@&998204129459580989>!' : 'Роли нету!' %}
+
+
+{% do guild.getChannel(1105481159443496991)
+  .createEmbed()
+  .withDescription(format('Статистика из Кликера!!\n Ник: **(%s)**\n TAG:(%s)\n **Присоединился:** \n*%s*\n **Кликер v1:** %s\n **Роль**\n %s\n**Кликер v2:** %s : %s\n **Роль**\n %s\n **Кликер v3**\n **Роль**\n %s', member.nickname(), member.tag(), member.joinedAt(), ((member.getAttribute('used').value) ?: 0), (a), ((member.getAttribute('test').value) ?: 0), ((member.getAttribute('w1').value) ?: 0), b, c ))
+  .send()
+  %}
+
+Ник: **{{ member.nickname() }}**
+TAG: {{ member.tag() }}
+
+**Присоединился:**
+*{{ member.joinedAt() }}*
+**Создан акк:**
+*{{ member.createdAt() }}*
+
+***Статус:*** {{ member.status() }}
+**№{{ member.rank() }} В Топе**
+***Опыт***
+**{{ member.rank.totalExp() }} Всего**
+**{{ member.rank.remainingExp() }} До следующего уровня**
+**{{ member.rank.voiceActivity() }} В голосовом**
+**{{ member.rank.voiceActivityMs() }} В голосовом в МС**
+(по фану добавил)
+
+*Роли:*
+  {{ member.roles() }}
+
+  
+**Последний клик сделал:
+{{ member }}**
+………………………………………………………………
+Роль от 10.000 кликов
+………………………………………………………………
+Количество кликов: {{ member.getAttribute('used').increment(1) }} 
+Добавить клик :rainbow_potion:
+………………………………………………………………
+{% if  (member.getAttribute('used')> 10000) -%}
+***(Роль выше 10.000 недоступна)***
+{%- else -%}
+	{% if (member.hasRole(997781612202835998)) == (folse) -%}
+		{%- if  (member.getAttribute('used')== 10000) %}
+			{{- member.addRole(997781612202835998).color(12) -}}
+			***Роль выпала поздравляю!:rainbow_potion: ***
+			{% else -%}
+			***Вы еще не накопили на роль!***
+		{% endif %}
+	{%- else -%}
+	***У вас уже есть роль!***
+  {% endif %}
+  {% endif %}
+
+
+{%- if component.id() == 5 -%}
+**Статистика сброшена**
+………………………………………………………………
+{{ member.getAttribute('test').clear() }}
+{{ member.getAttribute('w1').clear() }}
+*Твой TAG*
+***{{ member.tag() }}***
+………………………………………………………………
+**Роль**
+{% if (member.hasRole(998182738051993620)) != (folse) -%}
+	***Есть роль!***
+{%- else -%}
+	***Нет роли!***
+{%- endif %}
+{{ member }}
+{%- else -%}
+Последний клик:
+{{ member }}
+………………………………………………………………
+**Роль ровно 10.000 на каждом**
+………………………………………………………………
+**Количество кликов: (+10):** {% if component.id() == 1 -%}
+**{{- member.getAttribute('test').increment(10) -}}**
+{%- endif -%}
+{%- if component.id() == 2 -%}
+{%- if  member.getAttribute('test') == null -%}
+**0**
+{%- else -%}
+**{{- member.attributes.test.value -}}**
+{%- endif -%}
+{%- endif -%}
+{%- if component.id() == 4 -%}
+**{{- member.getAttribute('test').increment(-15) -}}**
+{%- endif %}
+**Количество кликов: (+r):** {% if component.id() == 2 -%}
+**{{- member.getAttribute('w1').increment(random(0, 1000)) -}}**
+{%- endif -%}
+{%- if component.id() == 1 -%}
+{%- if  member.getAttribute('w1') == null -%}
+**0**
+{%- else -%}
+**{{- member.attributes.w1.value -}}**
+{%- endif -%}
+{%- endif -%}
+{%- if component.id() == 4 -%}
+**{{ member.getAttribute('w1').increment(-15) -}}**
+{%- endif %}
+………………………………………………………………
+Добавить клики :minecraftanimated:
+Рандом клик :fox_spin:
+………………………………………………………………
+{%- if  ((((member.getAttribute('test')) > 10000) or ((member.getAttribute('w1')) > 10000))) %}
+***(роль недоступна > 10.000)***
+{% else -%}
+{% if (member.hasRole(998182738051993620)) == (folse) -%}
+{%- if  ((((member.getAttribute('test')) == (10000)) and ((member.getAttribute('w1')) == (10000)))) %}
+{{- member.addRole(998182738051993620).color(12) }}
+***Роль выпала поздравляю!:rainbow_potion:***
+{%- else %}
+***Недостаточно кликов для роли!***
+{% endif %}
+{%- else %}
+***Есть роль!***
+{% endif %}
+{%- endif -%}
+{%- endif %}
+{%- if  ((member.getAttribute('test')== null or member.getAttribute('w1')== null)) %}
+ТУт ЕсТЬ СеКреТка!
+{%- else -%}
+{%- if   ((member.getAttribute('test') < -470 or member.getAttribute('w1') < -470 )) and ( member.hasRole(1043434045255716894) == true ) -%}
+{{- member.modifyNickname('Я играю не по правилам!').color(12) -}}
+{%- endif -%}
+{% if   ((member.getAttribute('test') < -480 or member.getAttribute('w1') < -480 )) and ( member.hasRole(1043434045255716894) == true ) %}
+ПЕРЕСТАНЬ ИХ ЛОМАТЬ!!! Я тебя сбрасываю !!!!
+{{- member.addRole(1044361926890766446).color(12) -}}
+{{- member.getAttribute('test').clear() -}}
+{{- member.getAttribute('w1').clear() -}}
+{%- else -%}
+{% if  (member.getAttribute('test') < -500 or member.getAttribute('w1') < -500) -%}
+{{- member.addRole(1043434045255716894).color(12) }}
+{{- member.getAttribute('test').clear() -}}
+{{- member.getAttribute('w1').clear() -}}
+<@&1043434045255716894> Не делай так, а то накажу!!!
+{%- endif -%}
+{%- endif -%}
+{%- endif -%}
+
+
+
+
+  
+  
